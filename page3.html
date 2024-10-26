@@ -1,0 +1,125 @@
+<!-- page3.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Bangaram!</title>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('assets/birthday-background.jpg') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #messageContainer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 2s ease-in-out;
+            max-width: 80%;
+            text-align: center;
+        }
+        #messageContainer img {
+            width: 50%;
+            max-width: 300px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: bounceIn 1s ease forwards;
+        }
+        p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
+        #nextButton {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        #nextButton:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            top: -10px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="messageContainer">
+        <div>
+            <img src="babe.JPG" alt="Nandana">
+        </div>
+        <h1>Happy Birthday, Bangaram!</h1>
+        <p>
+            Today, we celebrate the wonderful person you are. You bring so much joy, love, and magic into this world. 
+            May this special day be filled with endless happiness, beautiful moments, and all the love you deserve.
+        </p>
+        <p>
+            I am incredibly grateful for every moment shared, every smile exchanged, and every laugh we’ve had together. 
+            You are my light, my love, and my forever. 
+        </p>
+        <button id="nextButton" onclick="goToNextPage()">Next</button>
+    </div>
+
+    <script>
+        // Function to navigate to the next page
+        function goToNextPage() {
+            window.location.href = 'index.html'; // Link to the next page
+        }
+
+        // Confetti Effect
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>

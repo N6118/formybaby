@@ -1,0 +1,146 @@
+<!-- page2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story Begins</title>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #contentContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+            text-align: center;
+        }
+        #storyContent {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #textContainer {
+            width: 60%;
+            padding-right: 20px;
+        }
+        .typewriter-text {
+            font-size: 1.5em;
+            line-height: 1.5;
+            color: #333;
+            white-space: pre-wrap;
+            position: relative;
+        }
+        .typewriter-text::after {
+            content: '|';
+            animation: blink 1s infinite step-start;
+            border-right: 2px solid;
+            display: inline-block;
+            position: absolute;
+            right: -5px;
+        }
+        #imageContainer {
+            width: 40%;
+        }
+        #imageContainer img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        #nextButton {
+            margin-top: 20px;
+            padding: 10px 30px;
+            font-size: 1.2em;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        #nextButton:hover {
+            background-color: #ff1493;
+            transform: scale(1.05);
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="contentContainer">
+        <div id="storyContent">
+            <div id="textContainer">
+                <div class="typewriter-text" id="typewriterText">
+                    <!-- Text will be typed out here -->
+                </div>
+            </div>
+            <div id="imageContainer">
+                <img src="us.jpg" alt="Story Image">
+            </div>
+        </div>
+        <button id="nextButton" onclick="goToNextPage()">Next</button>
+    </div>
+
+    <script>
+        const text = `
+Nandana Balakrishnan, 
+your existence is a beautiful crime, 
+for you entered my world like a storm, 
+sweeping away everything I once knew. 
+
+You arrived unannounced, 
+and with every step, you left traces of magic 
+that I could never erase. 
+You became the spark that ignited the fire in my heart, 
+the calm after every storm, 
+and the chaos that I never knew I needed.
+
+In every breath I take, 
+and in every beat of my heart, 
+there is a whisper of your name. 
+The world may have existed before you, 
+but it only truly began when you came into my life. 
+`; // The revised text to be typed out
+// The text to be typed out
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("typewriterText").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50); // Adjust typing speed by changing the delay (50ms here)
+            } else {
+                document.querySelector(".typewriter-text::after").style.display = 'none'; // Stop the blinking cursor once typing is complete
+            }
+        }
+
+        function goToNextPage() {
+            window.location.href = 'page3.html'; // Link to the next page
+        }
+
+        // Start typing effect when the page loads
+        window.onload = () => {
+            typeWriter();
+        };
+    </script>
+</body>
+</html>
